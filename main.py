@@ -54,6 +54,7 @@ def day2_part2():
 
 def day3_part1():
     value = data.day3.INPUT
+    mod = len(value[0])
 
     tree_idx = 0
     tree_count = 0
@@ -62,10 +63,7 @@ def day3_part1():
     for row_idx in range(row_count):
         tree_idx = row_idx * 3
 
-        repetition = (tree_idx // len(value[row_idx])) + 1
-
-        field = value[row_idx] * repetition
-        if field[tree_idx] == "#":
+        if value[row_idx][tree_idx % mod] == "#":
             tree_count += 1
 
     return tree_count
@@ -74,6 +72,7 @@ def day3_part1():
 def day3_part2():
     value = data.day3.INPUT
     row_count = len(value)
+    mod = len(value[0])
 
     slopes = [
         (1, 1),
@@ -93,10 +92,7 @@ def day3_part2():
         for row_idx in range(0, row_count, step):
             tree_idx = int(row_idx * right)
 
-            repetition = (tree_idx // len(value[row_idx])) + 1
-
-            field = value[row_idx] * repetition
-            if field[tree_idx] == "#":
+            if value[row_idx][tree_idx % mod] == "#":
                 tree_count += 1
 
         trees.append(tree_count)
