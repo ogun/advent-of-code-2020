@@ -50,3 +50,56 @@ def day2_part2():
             result += 1
 
     return result
+
+
+def day3_part1():
+    value = data.day3.INPUT
+
+    tree_idx = 0
+    tree_count = 0
+
+    row_count = len(value)
+    for row_idx in range(row_count):
+        tree_idx = row_idx * 3
+
+        repetition = (tree_idx // len(value[row_idx])) + 1
+
+        field = value[row_idx] * repetition
+        if field[tree_idx] == "#":
+            tree_count += 1
+
+    return tree_count
+
+
+def day3_part2():
+    value = data.day3.INPUT
+    row_count = len(value)
+
+    slopes = [
+        (1, 1),
+        (1, 3),
+        (1, 5),
+        (1, 7),
+        (2, 0.5),
+    ]
+
+    trees = []
+    for slope in slopes:
+        step = slope[0]
+        right = slope[1]
+
+        tree_idx = 0
+        tree_count = 0
+        for row_idx in range(0, row_count, step):
+            tree_idx = int(row_idx * right)
+
+            repetition = (tree_idx // len(value[row_idx])) + 1
+
+            field = value[row_idx] * repetition
+            if field[tree_idx] == "#":
+                tree_count += 1
+
+        trees.append(tree_count)
+
+    result = functools.reduce(operator.mul, trees)
+    return result
