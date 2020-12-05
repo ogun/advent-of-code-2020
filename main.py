@@ -177,3 +177,39 @@ def day04_part2():
             valid_passport_count += 1
 
     return valid_passport_count
+
+
+def day05_part1():
+    value = data.day05.INPUT
+
+    max_seat_id = 0
+    for boarding_pass in value:
+        seat_id = int(
+            boarding_pass.replace("F", "0")
+            .replace("B", "1")
+            .replace("L", "0")
+            .replace("R", "1"),
+            2,
+        )
+        max_seat_id = max(max_seat_id, seat_id)
+
+    return max_seat_id
+
+
+def day05_part2():
+    value = data.day05.INPUT
+
+    seat_ids = []
+    for boarding_pass in value:
+        seat_id = int(
+            boarding_pass.replace("F", "0")
+            .replace("B", "1")
+            .replace("L", "0")
+            .replace("R", "1"),
+            2,
+        )
+        seat_ids.append(seat_id)
+
+    for seat_id in range(min(seat_ids), max(seat_ids) + 1):
+        if seat_id not in seat_ids:
+            return seat_id
