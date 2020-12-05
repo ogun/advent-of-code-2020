@@ -6,22 +6,22 @@ import re
 import data
 
 
-def day1_part1():
-    value = data.day1.INPUT
+def day01_part1():
+    value = data.day01.INPUT
     pair = list(x for x in itertools.combinations(value, 2) if sum(x) == 2020)
     result = functools.reduce(operator.mul, pair[0])
     return result
 
 
-def day1_part2():
-    value = data.day1.INPUT
+def day01_part2():
+    value = data.day01.INPUT
     pair = list(x for x in itertools.combinations(value, 3) if sum(x) == 2020)
     result = functools.reduce(operator.mul, pair[0])
     return result
 
 
-def day2_part1():
-    value = data.day2.INPUT
+def day02_part1():
+    value = data.day02.INPUT
 
     result = 0
     for part in value:
@@ -36,8 +36,8 @@ def day2_part1():
     return result
 
 
-def day2_part2():
-    value = data.day2.INPUT
+def day02_part2():
+    value = data.day02.INPUT
 
     result = 0
     for part in value:
@@ -53,8 +53,8 @@ def day2_part2():
     return result
 
 
-def day3_part1():
-    value = data.day3.INPUT
+def day03_part1():
+    value = data.day03.INPUT
     mod = len(value[0])
 
     tree_idx = 0
@@ -70,8 +70,8 @@ def day3_part1():
     return tree_count
 
 
-def day3_part2():
-    value = data.day3.INPUT
+def day03_part2():
+    value = data.day03.INPUT
     row_count = len(value)
     mod = len(value[0])
 
@@ -102,8 +102,8 @@ def day3_part2():
     return result
 
 
-def day4_part1():
-    value = data.day4.INPUT
+def day04_part1():
+    value = data.day04.INPUT
 
     required_fields = {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
 
@@ -120,7 +120,7 @@ def day4_part1():
     return valid_passport_count
 
 
-def day4_part2():
+def day04_part2():
     rules = {
         "byr": {"regex": r"^[0-9]{4}$", "min": 1920, "max": 2002},
         "iyr": {"regex": r"^[0-9]{4}$", "min": 2010, "max": 2020},
@@ -136,7 +136,7 @@ def day4_part2():
         "cid": {"regex": r"."},
     }
 
-    value = data.day4.INPUT
+    value = data.day04.INPUT
 
     required_fields = {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
 
