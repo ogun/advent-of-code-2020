@@ -213,3 +213,25 @@ def day05_part2():
     for seat_id in range(min(seat_ids), max(seat_ids) + 1):
         if seat_id not in seat_ids:
             return seat_id
+
+
+def day06_part1():
+    value = data.day06.INPUT
+
+    total = 0
+    for i in value:
+        total += len(set(i))
+
+    return total
+
+
+def day06_part2():
+    value = data.day06.INPUT2
+
+    total = 0
+    for inp in value:
+        sets = [set(st) for st in inp]
+        intersection = functools.reduce(set.intersection, sets)
+        total += len(intersection)
+
+    return total
