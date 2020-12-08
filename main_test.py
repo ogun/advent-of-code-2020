@@ -73,3 +73,13 @@ class TestAnswers(unittest.TestCase):
         actual = main.day07_part2()
         expected = 6006
         self.assertEqual(actual, expected)
+
+    def test_day08_part1(self):
+        actual = main.day08_part1()
+        expected = 1563
+        self.assertEqual(actual, expected)
+
+    def test_day08_part2(self):
+        actual = main.day08_part2()
+        expected = 767
+        self.assertEqual(actual, expected)
